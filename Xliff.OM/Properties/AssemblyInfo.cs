@@ -26,4 +26,4 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyVersion("1.0.2.0")]
 [assembly: AssemblyFileVersion("1.0.2.0")]
 
-[assembly: InternalsVisibleTo("Xliff.OM.Tests")]
+[assembly: InternalsVisibleTo("Xliff.OM.Tests, PublicKey=002400000480000094000000060200000024000052534131000400000100010013f795cf308f1cb7b368d9dec675d92d677449fe6849aca68a1400e21445c2d01e7e5994b9f2b01306a5208c750e9f7beedc3efac831f003f9a55b391048e7ad665a4c5a8efafc09b636db82394a47285ea8aef41109c693801d167945027381708f96533cc31fc4de1e12bfd440c6c06d0bd712629b1906336e69993bc084c0")]

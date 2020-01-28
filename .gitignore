@@ -15,3 +15,6 @@ debug
 release
 obj
 
+UpgradeLog.htm
+.vs/
+TestResults/
