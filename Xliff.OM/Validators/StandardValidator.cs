@@ -2911,6 +2911,13 @@
                     foreach (ISelectable selectable in textElements)
                     {
                         foundSourceReference |= id == selectable.SelectorId;
+
+                        var segment = selectable as Segment;
+                        if (foundSourceReference && segment != null && segment.CanResegment)
+                        {
+                            string message = Properties.Resources.StandardValidator_MatchReferenceSegmentWithCanResegmentYes;
+                            throw new ValidationException(ValidationError.MatchReferenceASegmentWithCanResegmentYes, message, selectorPath);
+                        }
                     }
                 }
 

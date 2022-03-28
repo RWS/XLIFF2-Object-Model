@@ -17,8 +17,9 @@ namespace Localization.Xliff.OM.Converters
         string IValueConverter.Convert(object value)
         {
             ArgValidator.Create(value, "value").IsNotNull().IsOfType(typeof(float));
-
-            return value.ToString();
+            var floatValue = (float)value;
+            var result = floatValue.ToString(CultureInfo.InvariantCulture);
+            return result;
         }
 
         /// <summary>

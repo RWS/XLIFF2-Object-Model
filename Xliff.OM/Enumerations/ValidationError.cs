@@ -11,6 +11,11 @@
         internal const int BaseValue = 20000;
 
         /// <summary>
+        /// Indicates that a Match contains reference to a segment that has CanResegment set to yes
+        /// </summary>
+        internal const int MatchReferenceASegmentWithCanResegmentYes = 160;
+
+        /// <summary>
         /// The last used offset from the ValidationError.BaseValue that was used. This value should be incremented each time a new
         /// error number is added.
         /// </summary>
