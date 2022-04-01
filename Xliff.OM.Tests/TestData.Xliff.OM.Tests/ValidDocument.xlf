@@ -336,7 +336,7 @@
                 <source>text</source>
                 <target>text</target>
             </ignorable>
-            <segment canResegment="yes" state="reviewed" subState="prefix:value" id="s1">
+            <segment canResegment="no" state="reviewed" subState="prefix:value" id="s1">
                 <source xml:lang="en-us" xml:space="default">
                     <cp hex="10" />text
                 </source>
@@ -344,7 +344,7 @@
                     <cp hex="11" />text2
                 </target>
             </segment>
-            <segment canResegment="yes" state="reviewed" subState="prefix:value" id="s2">
+            <segment canResegment="no" state="reviewed" subState="prefix:value" id="s2">
                 <source xml:lang="en-us" xml:space="default">
                     <cp hex="10" />text<pc id="pc1" type="other" dataRefStart="d1" dataRefEnd="d1">text</pc>
                 </source>
