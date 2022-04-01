@@ -13,13 +13,13 @@
         /// <summary>
         /// Indicates that a Match contains reference to a segment that has CanResegment set to yes
         /// </summary>
-        internal const int MatchReferenceASegmentWithCanResegmentYes = 160;
+        internal const int MatchReferenceASegmentWithCanResegmentYes = ValidationError.BaseValue + 160;
 
         /// <summary>
         /// The last used offset from the ValidationError.BaseValue that was used. This value should be incremented each time a new
         /// error number is added.
         /// </summary>
-        internal const int LastUsedOffset = 159;
+        internal const int LastUsedOffset = 160;
 
         /// <summary>
         /// Indicates a ChangeTrack does not contain any RevisionContainers.
