@@ -1,4 +1,6 @@
-﻿namespace Localization.Xliff.OM.Converters
+﻿using System.Globalization;
+
+namespace Localization.Xliff.OM.Converters
 {
     /// <summary>
     /// Converts an unsigned integer to a string, and back.
@@ -28,7 +30,7 @@
         {
             ArgValidator.Create(value, "value").IsNotNullOrWhitespace();
 
-            return uint.Parse(value);
+            return uint.Parse(value, CultureInfo.InvariantCulture);
         }
         #endregion IValueConverter Implementation
     }

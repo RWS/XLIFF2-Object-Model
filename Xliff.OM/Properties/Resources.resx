@@ -462,4 +462,7 @@
   <data name="StandardValidator_OutputResolverFailed_Format" xml:space="preserve">
     <value>A value for {0} must be specified.</value>
   </data>
+  <data name="StandardValidator_MatchReferenceSegmentWithCanResegmentYes" xml:space="preserve">
+    <value>There is a match that references a segment that has CanResegment set to Yes</value>
+  </data>
 </root>

@@ -1,4 +1,6 @@
-﻿namespace Localization.Xliff.OM.Converters
+﻿using System.Globalization;
+
+namespace Localization.Xliff.OM.Converters
 {
     /// <summary>
     /// Converts a float to an string, and back.
@@ -15,8 +17,9 @@
         string IValueConverter.Convert(object value)
         {
             ArgValidator.Create(value, "value").IsNotNull().IsOfType(typeof(float));
-
-            return value.ToString();
+            var floatValue = (float)value;
+            var result = floatValue.ToString(CultureInfo.InvariantCulture);
+            return result;
         }
 
         /// <summary>
@@ -27,8 +30,8 @@
         object IValueConverter.ConvertBack(string value)
         {
             ArgValidator.Create(value, "value").IsNotNullOrWhitespace();
-
-            return float.Parse(value);
+            var result = float.Parse(value, CultureInfo.InvariantCulture);
+            return result;
         }
         #endregion IValueConverter Implementation
     }

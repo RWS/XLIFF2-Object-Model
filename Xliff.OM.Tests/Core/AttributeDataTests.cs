@@ -119,6 +119,13 @@
             data.SetValue("A");
             Assert.IsTrue(data.HasValue, "HasValue is incorrect.");
             Assert.AreEqual(10, data.Value, "Value is incorrect.");
+
+            Console.WriteLine("Test with converter.");
+            data = new AttributeData("test", new XmlNameInfo("name"), true);
+            data.ConverterTypeName = typeof(FloatConverter).FullName;
+            data.SetValue("100.0");
+            Assert.IsTrue(data.HasValue, "HasValue is incorrect.");
+            Assert.AreEqual(100.0f, data.Value, "Value is incorrect.");
         }
 
         /// <summary>

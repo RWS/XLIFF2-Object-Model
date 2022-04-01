@@ -31,7 +31,7 @@
         {
             ArgValidator.Create(value, "value").IsNotNullOrWhitespace();
 
-            return int.Parse(value, NumberStyles.HexNumber);
+            return int.Parse(value, NumberStyles.HexNumber, CultureInfo.InvariantCulture);
         }
         #endregion IValueConverter Implementation
     }
