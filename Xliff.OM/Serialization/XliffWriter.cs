@@ -292,7 +292,7 @@
         /// </summary>
         /// <param name="stream">The stream to write to.</param>
         /// <param name="document">The document to write.</param>
-        public void Serialize(Stream stream, XliffDocument document)
+        public void Serialize(Stream stream, XliffDocument document, XmlWriter xmlWriter = null)
         {
             XmlWriterSettings settings;
 
@@ -306,7 +306,7 @@
                 settings.IndentChars = this.settings.IndentChars;
             }
 
-            using (XmlWriter writer = XmlWriter.Create(stream, settings))
+            using (XmlWriter writer = xmlWriter ?? XmlWriter.Create(stream, settings))
             {
                 this.Serialize(writer, document);
             }
