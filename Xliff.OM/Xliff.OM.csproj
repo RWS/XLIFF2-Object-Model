@@ -11,7 +11,7 @@
     <RootNamespace>Localization.Xliff.OM</RootNamespace>
     <AssemblyName>Xliff.OM</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\packages\SDLKeys.2.0.0\tools\sdl.snk</AssemblyOriginatorKeyFile>
     <TargetFrameworkProfile />
