@@ -17,7 +17,7 @@
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>$(USERPROFILE)\.nuget\packages\sdlkeys\2.0.0\tools\Sdl.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\packages\SDLKeys.2.0.0\tools\sdl.snk</AssemblyOriginatorKeyFile>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -255,6 +255,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\packages\SDLKeys.2.0.0\tools\sdl.snk">
+      <Link>sdl.snk</Link>
+    </None>
     <None Include="Oasis_TestFiles\core\in-out\toJoin1_in.xlf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -972,6 +975,7 @@
     <None Include="Oasis_TestFiles\modules\valid\Goodslr_sizeRestriction-isolated.xlf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
     <None Include="TestData.Xliff.OM.Tests\DataWithValidValues.xlf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
