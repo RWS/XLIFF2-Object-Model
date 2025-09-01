@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>$(USERPROFILE)\.nuget\packages\sdlkeys\2.0.0\tools\Sdl.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\packages\SDLKeys.2.0.0\tools\sdl.snk</AssemblyOriginatorKeyFile>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -286,6 +286,12 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\packages\SDLKeys.2.0.0\tools\sdl.snk">
+      <Link>sdl.snk</Link>
+    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
