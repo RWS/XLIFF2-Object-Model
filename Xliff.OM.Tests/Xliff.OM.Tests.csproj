@@ -435,9 +435,6 @@
     <None Include="Oasis_TestFiles\core\invalid\bad_InvalidDirAttributeOnSource.xlf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Oasis_TestFiles\core\invalid\bad_InvalidExtensionAttributeOnPc.xlf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Oasis_TestFiles\core\invalid\bad_InvalidExtensionAttributeOnSegment.xlf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

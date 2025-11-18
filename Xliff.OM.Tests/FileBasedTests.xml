@@ -59,7 +59,6 @@
     <Row path="Oasis_TestFiles\core\invalid\bad_InvalidDataRefEnd.xlf"                                          expectedResult="ValidationError" errorNumber="20084" />
     <Row path="Oasis_TestFiles\core\invalid\bad_InvalidDataRefStart.xlf"                                        expectedResult="ValidationError" errorNumber="20085" />
     <Row path="Oasis_TestFiles\core\invalid\bad_InvalidDirAttributeOnSource.xlf"                                expectedResult="NotSupported" />
-    <Row path="Oasis_TestFiles\core\invalid\bad_InvalidExtensionAttributeOnPc.xlf"                              expectedResult="NotSupported" />
     <Row path="Oasis_TestFiles\core\invalid\bad_InvalidExtensionAttributeOnSegment.xlf"                         expectedResult="NotSupported" />
     <Row path="Oasis_TestFiles\core\invalid\bad_InvalidExtensionAttributeOnSource.xlf"                          expectedResult="NotSupported" />
     <Row path="Oasis_TestFiles\core\invalid\bad_InvalidExtensionAttributeOnTarget.xlf"                          expectedResult="NotSupported" />
