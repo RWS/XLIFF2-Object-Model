@@ -1,5 +1,6 @@
 ﻿namespace Localization.Xliff.OM.Core
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Diagnostics;
@@ -7,6 +8,7 @@
     using Localization.Xliff.OM.Attributes;
     using Localization.Xliff.OM.Converters;
     using Localization.Xliff.OM.Core.XmlNames;
+    using Localization.Xliff.OM.Extensibility;
 
     /// <summary>
     /// This class represents a start of a spanning original code. This corresponds to a &lt;sc> element in the XLIFF
@@ -36,8 +38,13 @@
     [SuppressMessage("StyleCop.CSharp.DocumentationRules",
                      "SA1650:ElementDocumentationMustBeSpelledCorrectly",
                      Justification = "Example contains literals described in the specification.")]
-    public class SpanningCodeStart : CodeBase, IInheritanceInfoProvider
+    public class SpanningCodeStart : CodeBase, IExtensible, IInheritanceInfoProvider
     {
+        /// <summary>
+        /// The list of extensions that store custom data.
+        /// </summary>
+        private readonly Lazy<List<IExtension>> extensions;
+
         #region Constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="SpanningCodeStart"/> class.
@@ -46,6 +53,7 @@
         public SpanningCodeStart(string id)
             : base(id)
         {
+            this.extensions = new Lazy<List<IExtension>>();
         }
 
         /// <summary>
@@ -171,6 +179,38 @@
         public override bool SupportsDataReferences
         {
             get { return true; }
+        }
+
+        /// <summary>
+        /// Gets the list of registered extensions on the object.
+        /// </summary>
+        IList<IExtension> IExtensible.Extensions
+        {
+            get { return this.extensions.Value; }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether extensions are registered on the object.
+        /// </summary>
+        bool IExtensible.HasExtensions
+        {
+            get { return this.extensions.IsValueCreated && (this.extensions.Value.Count > 0); }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether attribute extensions are supported by the object.
+        /// </summary>
+        bool IExtensible.SupportsAttributeExtensions
+        {
+            get { return true; }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether element extensions are supported by the object.
+        /// </summary>
+        bool IExtensible.SupportsElementExtensions
+        {
+            get { return false; }
         }
         #endregion Properties
 

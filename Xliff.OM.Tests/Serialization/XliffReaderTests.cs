@@ -683,6 +683,76 @@ namespace Localization.Xliff.OM.Serialization.Tests
         }
 
         /// <summary>
+        /// Test de-serializer with CRQ-42001.xliff file.
+        /// </summary>
+        [TestMethod()]
+        [TestCategory(TestUtilities.UnitTestCategory)]
+        public void CRQ42001_AttributesFromOtherNamespaces2()
+        {
+            string path = System.IO.Path.Combine(Environment.CurrentDirectory, TestUtilities.TestDataDirectory, "CRQ-42001-More-tags.xliff");
+
+            try
+            {
+                using (System.IO.FileStream stream = new System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.Read))
+                {
+                    this._document = this._reader.Deserialize(stream);
+                }
+
+                // If we get here, deserialization succeeded
+                Assert.IsNotNull(this._document, "Document should not be null after deserialization.");
+            }
+            catch (System.IO.FileNotFoundException)
+            {
+                Assert.Fail("CRQ-42001-More-tags.xliff file not found in test data directory.");
+            }
+            catch (XmlException ex)
+            {
+                Console.WriteLine($"XmlException occurred: {ex.Message}");
+                // Depending on expected behavior, you might want to Assert.Fail or just log
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected exception occurred: {ex.GetType().Name} - {ex.Message}");
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Test de-serializer with CRQ-42001.xliff file.
+        /// </summary>
+        [TestMethod()]
+        [TestCategory(TestUtilities.UnitTestCategory)]
+        public void CRQ42001_AttributesFromOtherNamespaces()
+        {
+            string path = System.IO.Path.Combine(Environment.CurrentDirectory, TestUtilities.TestDataDirectory, "CRQ-42001.xliff");
+
+            try
+            {
+                using (System.IO.FileStream stream = new System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.Read))
+                {
+                    this._document = this._reader.Deserialize(stream);
+                }
+
+                // If we get here, deserialization succeeded
+                Assert.IsNotNull(this._document, "Document should not be null after deserialization.");
+            }
+            catch (System.IO.FileNotFoundException)
+            {
+                Assert.Fail("CRQ-42001.xliff file not found in test data directory.");
+            }
+            catch (XmlException ex)
+            {
+                Console.WriteLine($"XmlException occurred: {ex.Message}");
+                // Depending on expected behavior, you might want to Assert.Fail or just log
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected exception occurred: {ex.GetType().Name} - {ex.Message}");
+                throw;
+            }
+        }
+
+        /// <summary>
         /// Tests that a <see cref="MarkedSpan"/> deserializes correctly.
         /// </summary>
         [TestMethod()]

@@ -1,10 +1,12 @@
 ﻿namespace Localization.Xliff.OM.Core
 {
+    using Localization.Xliff.OM.Attributes;
+    using Localization.Xliff.OM.Core.XmlNames;
+    using Localization.Xliff.OM.Extensibility;
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Diagnostics.CodeAnalysis;
-    using Localization.Xliff.OM.Attributes;
-    using Localization.Xliff.OM.Core.XmlNames;
 
     /// <summary>
     /// This class represents a standalone code inline tag. This corresponds to a &lt;ph> element in the XLIFF 2.0
@@ -31,8 +33,13 @@
     [SuppressMessage("StyleCop.CSharp.DocumentationRules",
                      "SA1650:ElementDocumentationMustBeSpelledCorrectly",
                      Justification = "Example contains literals described in the specification.")]
-    public class StandaloneCode : CodeBase
+    public class StandaloneCode : CodeBase, IExtensible
     {
+        /// <summary>
+        /// The list of extensions that store custom data.
+        /// </summary>
+        private readonly Lazy<List<IExtension>> extensions;
+
         #region Constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="StandaloneCode"/> class.
@@ -43,6 +50,7 @@
         {
             this.EnableAttribute(StandaloneCode.PropertyNames.SizeRestriction, false);
             this.EnableAttribute(StandaloneCode.PropertyNames.StorageRestriction, false);
+            this.extensions = new Lazy<List<IExtension>>();
         }
 
         /// <summary>
@@ -143,6 +151,38 @@
         /// Gets a value indicating whether the object supports the StorageRestriction property.
         /// </summary>
         public override bool SupportsStorageRestriction
+        {
+            get { return false; }
+        }
+
+        /// <summary>
+        /// Gets the list of registered extensions on the object.
+        /// </summary>
+        IList<IExtension> IExtensible.Extensions
+        {
+            get { return this.extensions.Value; }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether extensions are registered on the object.
+        /// </summary>
+        bool IExtensible.HasExtensions
+        {
+            get { return this.extensions.IsValueCreated && (this.extensions.Value.Count > 0); }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether attribute extensions are supported by the object.
+        /// </summary>
+        bool IExtensible.SupportsAttributeExtensions
+        {
+            get { return true; }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether element extensions are supported by the object.
+        /// </summary>
+        bool IExtensible.SupportsElementExtensions
         {
             get { return false; }
         }

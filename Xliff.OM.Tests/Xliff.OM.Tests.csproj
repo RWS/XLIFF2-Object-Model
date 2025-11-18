@@ -976,6 +976,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <None Include="TestData.Xliff.OM.Tests\CRQ-42001-More-tags.xliff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="TestData.Xliff.OM.Tests\DataWithValidValues.xlf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -1048,6 +1051,9 @@
     </None>
     <None Include="TestData.Xliff.OM.Tests\MarkedSpanWithValidValues.xlf">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData.Xliff.OM.Tests\CRQ-42001.xliff">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="TestData.Xliff.OM.Tests\SpanningCodeEndWithValidId.xlf">

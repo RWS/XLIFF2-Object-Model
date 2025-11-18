@@ -1,0 +1,25 @@
+<xliff version="2.0" srcLang="en" xmlns="urn:oasis:names:tc:xliff:document:2.0" xmlns:xtest="urn:xtest"
+>
+  <file id="f1">
+    <unit id="u1" >
+      <segment>
+        <source xml:space="preserve">This is a test, <ph id="2" xtest:xref="12345"/>.</source>
+      </segment>
+		<segment>
+			<source>
+				<pc id="1" xtest:xref="12345">Important</pc>text
+			</source>
+		</segment>
+		<segment>
+			<source>
+				<sc id="1" type="fmt" xtest:xref="12345" subType="xlf:b"/>First sentence.
+			</source>
+		</segment>
+		<segment>
+			<source>
+				Second sentence.<ec startRef="1" xtest:xref="12345" type="fmt" subType="xlf:b"/>
+			</source>
+		</segment>
+    </unit>
+  </file>
+</xliff>
