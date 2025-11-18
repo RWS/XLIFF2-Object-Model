@@ -1,0 +1,294 @@
+<!-- XLIFF 2.0 Complete Example: ALL Elements Supporting Custom Namespace Attributes -->
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" 
+       xmlns:mtc="urn:oasis:names:tc:xliff:matches:2.0"
+       xmlns:gls="urn:oasis:names:tc:xliff:glossary:2.0"
+       xmlns:res="urn:oasis:names:tc:xliff:resourcedata:2.0"
+       xmlns:ctr="urn:oasis:names:tc:xliff:changetracking:2.0"
+       xmlns:val="urn:oasis:names:tc:xliff:validation:2.0"
+       xmlns:custom="http://example.com/custom"
+       xmlns:meta="http://example.com/metadata"
+       xmlns:ext="http://example.com/extension"
+       version="2.0" 
+       srcLang="en" 
+       trgLang="fr"
+       custom:version="1.0"
+       meta:origin="extraction-tool-v2">
+  
+  <!-- FILE element: supports custom namespace attributes -->
+  <file id="f1" 
+        original="document.docx"
+        custom:department="engineering"
+        ext:priority="high">
+    
+    <!-- GROUP element: supports custom namespace attributes -->
+    <group id="g1" 
+           name="Introduction"
+           custom:reviewStatus="pending"
+           meta:author="john.doe">
+      
+      <!-- UNIT element: supports custom namespace attributes -->
+      <unit id="u1"
+            name="greeting"
+            custom:context="welcome_screen"
+            ext:complexity="medium">
+        
+        <notes>
+          <!-- NOTE element: supports custom namespace attributes -->
+          <note id="n1" 
+                appliesTo="source"
+                custom:severity="info"
+                meta:timestamp="2024-01-15T10:30:00Z">
+            Context: User greeting on app startup
+          </note>
+        </notes>
+        
+        <originalData>
+          <data id="d1"><![CDATA[<img src="icon.png" />]]></data>
+          <data id="d2"><![CDATA[<b>]]></data>
+          <data id="d3"><![CDATA[</b>]]></data>
+          <data id="d4"><![CDATA[<u>]]></data>
+          <data id="d5"><![CDATA[</u>]]></data>
+        </originalData>
+        
+        <segment id="seg1">
+          <source xml:lang="en">
+            Welcome! This is a 
+            <!-- PH (standalone code): supports custom namespace attributes -->
+            <ph id="ph1" 
+                dataRef="d1"
+                custom:resourceId="icon-welcome"
+                ext:accessibility="aria-label"></ph>.
+          </source>
+          <target xml:lang="fr">
+            Bienvenue! Ceci est un 
+            <ph id="ph1" 
+                dataRef="d1"
+                custom:resourceId="icon-welcome"
+                ext:accessibility="aria-label"></ph>.
+          </target>
+        </segment>
+        
+        <segment id="seg2">
+          <source xml:lang="en">
+            <!-- PC (spanning code): supports custom namespace attributes -->
+            <pc id="pc1" 
+                dataRefStart="d2" 
+                dataRefEnd="d3"
+                custom:fontStyle="bold"
+                ext:semantics="emphasis">Important</pc> content.
+          </source>
+          <target xml:lang="fr">
+            <pc id="pc1" 
+                dataRefStart="d2" 
+                dataRefEnd="d3"
+                custom:fontStyle="bold"
+                ext:semantics="emphasis">Important</pc> contenu.
+          </target>
+        </segment>
+        
+        <segment id="seg3">
+          <source xml:lang="en">
+            <!-- SC (start code): supports custom namespace attributes -->
+            <sc id="sc1" 
+                dataRef="d4"
+                custom:codeId="fmt-001"
+                ext:style="underline"/>text 
+            <!-- EC (end code): supports custom namespace attributes -->
+            <ec id="ec1" 
+                startRef="sc1"
+                dataRef="d5"
+                custom:codeId="fmt-001"
+                ext:style="underline"/>continues.
+          </source>
+          <target xml:lang="fr">
+            <sc id="sc1" 
+                dataRef="d4"
+                custom:codeId="fmt-001"
+                ext:style="underline"/>texte 
+            <ec id="ec1" 
+                startRef="sc1"
+                dataRef="d5"
+                custom:codeId="fmt-001"
+                ext:style="underline"/>continue.
+          </target>
+        </segment>
+        
+        <segment id="seg4">
+          <source xml:lang="en">
+            <!-- MRK (marker): supports custom namespace attributes -->
+            <mrk id="m1" 
+                 type="term" 
+                 ref="https://terminology.example.com/api"
+                 custom:termId="TERM-12345"
+                 ext:confidence="0.95">API</mrk> documentation.
+          </source>
+          <target xml:lang="fr">
+            Documentation de l'
+            <mrk id="m1" 
+                 type="term"
+                 ref="https://terminology.example.com/api"
+                 custom:termId="TERM-12345"
+                 ext:confidence="0.95">API</mrk>.
+          </target>
+        </segment>
+        
+        <segment id="seg5">
+          <source xml:lang="en">
+            <!-- SM (start marker): supports custom namespace attributes -->
+            <sm id="sm1" 
+                type="comment" 
+                value="Important update"
+                custom:markerId="MARK-99"
+                ext:level="critical"/>This section 
+            <!-- EM (end marker): supports custom namespace attributes -->
+            <em startRef="sm1"/>needs review.
+          </source>
+          <target xml:lang="fr">
+            <sm id="sm1" 
+                type="comment" 
+                value="Mise à jour importante"
+                custom:markerId="MARK-99"
+                ext:level="critical"/>Cette section 
+            <em startRef="sm1"/>nécessite un examen.
+          </target>
+        </segment>
+      </unit>
+    </group>
+    
+    <!-- UNIT with Translation Candidates module (matches) -->
+    <unit id="u2">
+      <mtc:matches>
+        <!-- MATCH element (5.1.5.3): supports custom namespace attributes -->
+        <mtc:match id="match1"
+                   ref="#seg6"
+                   similarity="85"
+                   matchQuality="92"
+                   matchSuitability="88"
+                   origin="Translation Memory System"
+                   type="tm"
+                   custom:tmId="TM-2024-001"
+                   ext:score="0.88"
+                   meta:retrievedAt="2024-01-15T09:00:00Z">
+          <source>Welcome to our application</source>
+          <target>Bienvenue dans notre application</target>
+        </mtc:match>
+      </mtc:matches>
+      
+      <segment id="seg6">
+        <source xml:lang="en">Welcome to our application</source>
+        <target xml:lang="fr">Bienvenue dans notre application</target>
+      </segment>
+    </unit>
+    
+    <!-- UNIT with Glossary module entries -->
+    <unit id="u3">
+      <gls:glossary>
+        <!-- GLOSSENTRY element (5.2.4.3): supports custom namespace attributes -->
+        <gls:glossEntry id="gloss1"
+                        ref="#seg7"
+                        custom:domain="software"
+                        ext:category="ui-terminology"
+                        meta:status="approved">
+          <!-- TERM element (5.2.4.4): supports custom namespace attributes -->
+          <gls:term custom:lemma="application" ext:partOfSpeech="noun">application</gls:term>
+          <!-- TRANSLATION element (5.2.4.5): supports custom namespace attributes -->
+          <gls:translation id="trans1" custom:approved="yes" ext:usage="common">application</gls:translation>
+          <!-- DEFINITION element (5.2.4.6): supports custom namespace attributes -->
+          <gls:definition custom:source="standard" ext:complexity="beginner">A software program designed to help users.</gls:definition>
+        </gls:glossEntry>
+      </gls:glossary>
+      
+      <segment id="seg7">
+        <source xml:lang="en">The application is ready</source>
+        <target xml:lang="fr">L'application est prête</target>
+      </segment>
+    </unit>
+    
+    <!-- UNIT with Resource Data module -->
+    <unit id="u4">
+      <res:resourceData>
+        <!-- RESOURCEITEMREF element (5.5.4.3): supports custom namespace attributes -->
+        <res:resourceItemRef id="ref1"
+                             ref="r1"
+                             custom:priority="high"
+                             ext:cached="true"/>
+        
+        <!-- RESOURCEITEM element (5.5.4.4): supports custom namespace attributes -->
+        <res:resourceItem id="r1"
+                          mimeType="image/png"
+                          context="yes"
+                          custom:resourceType="screenshot"
+                          ext:version="2.0">
+          <!-- SOURCE element (5.5.4.5): supports custom namespace attributes -->
+          <res:source href="images/source.png"
+                      xml:lang="en"
+                      custom:resolution="1920x1080"
+                      ext:quality="high"/>
+          <!-- TARGET element (5.5.4.6): supports custom namespace attributes -->
+          <res:target href="images/target.png"
+                      xml:lang="fr"
+                      custom:resolution="1920x1080"
+                      ext:quality="high"/>
+          <!-- REFERENCE element (5.5.4.7): supports custom namespace attributes -->
+          <res:reference href="images/reference.png"
+                         xml:lang="de"
+                         custom:reviewed="yes"
+                         ext:timestamp="2024-01-10"/>
+        </res:resourceItem>
+      </res:resourceData>
+      
+      <segment id="seg8">
+        <source xml:lang="en">See the screenshot</source>
+        <target xml:lang="fr">Voir la capture d'écran</target>
+      </segment>
+    </unit>
+    
+    <!-- UNIT with Change Tracking module -->
+    <unit id="u5">
+      <ctr:changeTrack>
+        <!-- REVISIONS element (5.6.4.3): supports custom namespace attributes -->
+        <ctr:revisions appliesTo="source"
+                       currentVersion="r1"
+                       custom:trackingId="track001"
+                       ext:status="active">
+          <!-- REVISION element (5.6.4.4): supports custom namespace attributes -->
+          <ctr:revision author="editor1"
+                        datetime="2024-01-15T10:00:00Z"
+                        version="r1"
+                        custom:changeType="content-update"
+                        ext:approved="yes">
+            <!-- ITEM element (5.6.4.5): supports custom namespace attributes -->
+            <ctr:item property="content"
+                      custom:severity="minor"
+                      ext:reviewStatus="approved">Updated source text</ctr:item>
+          </ctr:revision>
+        </ctr:revisions>
+      </ctr:changeTrack>
+      
+      <segment id="seg9">
+        <source xml:lang="en">Original text</source>
+        <target xml:lang="fr">Texte original</target>
+      </segment>
+    </unit>
+    
+    <!-- UNIT with Validation module -->
+    <unit id="u7">
+      <!-- VALIDATION element (5.8.4.2): supports custom namespace attributes -->
+      <val:validation custom:validationSet="standard"
+                      ext:strictMode="true">
+        <!-- RULE element (5.8.4.3): supports custom namespace attributes -->
+        <val:rule isPresent="test"
+                  caseSensitive="yes"
+                  custom:ruleId="rule001"
+                  ext:severity="error"/>
+      </val:validation>
+      
+      <segment id="seg11">
+        <source xml:lang="en">Test content</source>
+        <target xml:lang="fr">Contenu de test</target>
+      </segment>
+    </unit>
+    
+  </file>
+  
+</xliff>
